@@ -12,10 +12,16 @@ InstrumentView.prototype.bindEvents = function(){
     })
 }
 
-InstrumentView.prototype.render = function(instrument) {
+InstrumentView.prototype.render = function(instrument){ 
+
+    this.container.innerHTML = ''
+
+    const infoHeader = document.createElement('h2');
+    infoHeader.textContent = `${instrument.name}`
+    this.container.appendChild(infoHeader);
+
     const infoParagraph = document.createElement('p')
     infoParagraph.textContent = `${instrument.description}`
-    this.container.innerHTML = ''
     this.container.appendChild(infoParagraph);
 }
 
