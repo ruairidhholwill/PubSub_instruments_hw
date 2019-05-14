@@ -23,12 +23,21 @@ InstrumentView.prototype.render = function(instrument){
     const infoParagraph = document.createElement('p')
     infoParagraph.textContent = `${instrument.description}`
     this.container.appendChild(infoParagraph);
+
+    const instrumentList = this.createInstrumentList(instrument.instruments);
+    this.container.appendChild(instrumentList);
+    }
+
+
+InstrumentView.prototype.createInstrumentList = function(instruments) {
+    const list = document.createElement('ul');
+    instruments.forEach((instrument) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = instrument;
+        list.appendChild(listItem)
+    });
+    return list;
 }
-
-
-
-
-
 
 
 
